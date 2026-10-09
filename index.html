@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Charging Trends 2027 – das Special in electrified 01/2027. Themen, Mediadaten, Partnerpakete und Termine.">
+<style>html,body{margin:0}</style>
+<title>Charging Trends 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Layout: electrifiedmagazin.de – weißer Header mit Wortmarke, hellgraue Seite, Bild-Teaser mit weißer Schrift, grüner Akzent, anthrazit Footer */
+:root{
+  color-scheme: light;
+  --page:#F0F0F0; --paper:#FFFFFF; --ink:#232323; --text:#444444; --muted:#7A7A7A; --line:#E2E2E2;
+  --green:#3FA033; --green-dark:#2F7D26; --green-soft:#E9F4E7; --foot:#373941; --foot-text:#F9F9F9; --foot-muted:#B9BAC0;
+  --scrim:rgba(12,12,14,.72);
+  --slab:'Roboto Slab', Georgia, serif; --sans:'Roboto', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--text);font-family:var(--slab);font-size:16px;line-height:1.6;margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:28px;min-height:76px}
+.bar img{width:190px;height:auto}
+nav.main{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{text-decoration:none;color:var(--muted);white-space:nowrap;font-size:16px;padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a.on{color:var(--green)}
+nav.main a.on{border-bottom-color:var(--green)}
+nav.main a:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--green);outline-offset:3px}
+
+/* Banner */
+.banner{background:var(--paper);border-bottom:1px solid var(--line)}
+.banner .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;padding-block:12px;font-size:15px}
+.banner b{color:var(--ink);font-weight:600}
+.count{display:flex;align-items:baseline;gap:8px;color:var(--green-dark);font-family:var(--sans);font-weight:500}
+.count strong{font-size:22px;font-variant-numeric:tabular-nums}
+
+main{padding-block:28px 64px;display:flex;flex-direction:column;gap:56px}
+section{scroll-margin-top:96px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
+.sec-head h2{font-size:26px;font-weight:400;color:var(--ink);margin:0}
+.sec-head span{font-size:14px;color:var(--muted)}
+.cat{font-family:var(--slab);font-size:13px;color:var(--green);letter-spacing:.3px}
+
+/* Hero grid */
+.hero{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:8px;height:clamp(420px,52vw,560px)}
+.tile{position:relative;overflow:hidden;background:var(--foot);color:#FFFFFF;text-decoration:none;min-width:0}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--scrim) 0%,rgba(12,12,14,.15) 60%,rgba(12,12,14,0) 100%)}
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:1;display:flex;flex-direction:column;gap:6px}
+.tile .cap .cat{background:var(--green);color:#FFFFFF;align-self:flex-start;padding:2px 10px;font-size:12px}
+.tile h1,.tile h3{margin:0;font-weight:400;line-height:1.2;text-wrap:balance;color:#FFFFFF}
+.tile h1{font-size:clamp(30px,4.2vw,48px)}
+.tile h3{font-size:21px}
+.tile p{margin:0;font-size:15px;color:#E8E8E8;max-width:52ch}
+.hero .big{grid-row:span 2}
+
+/* Intro article */
+.article{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:32px;background:var(--paper);padding:32px}
+.article h2{font-size:30px;font-weight:400;color:var(--ink);margin:4px 0 14px;line-height:1.25;text-wrap:balance}
+.article p{margin:0 0 14px;max-width:65ch}
+.lead{font-size:18px;color:var(--ink)}
+.facts{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:28px;gap:0}
+.facts div{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:none}
+.facts dt{font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-size:18px;color:var(--ink)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stat{background:var(--paper);padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;border-top:3px solid var(--green)}
+.stat b{font-family:var(--sans);font-weight:700;font-size:clamp(28px,3.4vw,38px);color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;line-height:1.45}
+.src{font-size:13px;color:var(--muted);margin-top:10px}
+.stats.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.whyc{background:var(--foot);color:var(--foot-text);padding:24px;display:flex;flex-direction:column;gap:8px}
+.whyc .cat{color:#9FD898}
+.whyc b{font-family:var(--sans);font-size:clamp(30px,3.4vw,40px);line-height:1.1;color:#FFFFFF;font-variant-numeric:tabular-nums}
+.whyc p{margin:0;font-size:15px;line-height:1.55;color:var(--foot-text)}
+@media (max-width:900px){.why{grid-template-columns:1fr}}
+
+/* Trend cards */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{background:var(--paper);display:flex;flex-direction:column}
+.card .ph{aspect-ratio:16/9;overflow:hidden;background:var(--line)}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:20px;font-weight:400;color:var(--ink);margin:0;line-height:1.3}
+.card p{margin:0;font-size:15px}
+.card .fit{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:8px}
+
+/* Audience */
+.aud{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8px}
+.aud .tile{min-height:380px}
+.aud .panel{background:var(--paper);padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;align-content:start}
+.aud h4{font-family:var(--sans);font-size:13px;letter-spacing:.8px;text-transform:uppercase;color:var(--green-dark);margin:0 0 8px;font-weight:500}
+.aud ul{list-style:none;margin:0;padding:0}
+.aud li{padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+.aud li::before{content:"_ ";color:var(--green)}
+.reach{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;border-top:2px solid var(--ink);padding-top:16px}
+.reach b{display:block;font-family:var(--sans);font-size:24px;color:var(--ink);font-variant-numeric:tabular-nums}
+.reach span{font-size:13px;color:var(--muted);line-height:1.35;display:block}
+
+/* Packages */
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pkg{background:var(--paper);padding:26px;display:flex;flex-direction:column;gap:10px;border:1px solid var(--line)}
+.pkg.top{border:2px solid var(--green)}
+.pkg h3{font-family:var(--sans);font-size:28px;font-weight:700;color:var(--ink);margin:0}
+.pkg ul{list-style:none;padding:0;margin:4px 0 8px;display:flex;flex-direction:column;gap:6px}
+.pkg li{font-size:15px}
+.pkg li::before{content:"_ ";color:var(--green)}
+.pkg .price{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;font-size:14px;color:var(--muted)}
+.pkg .price{display:flex;flex-direction:column;gap:8px}
+.pkg .price .lp i{font-style:normal;font-family:var(--sans);color:var(--text);margin-left:6px;font-variant-numeric:tabular-nums}
+.pkg .price .lp{text-decoration:none}
+.pkg .price .pp{display:flex;flex-direction:column}
+.pkg .price .pp b{display:block;font-family:var(--sans);font-size:26px;color:var(--green-dark);font-variant-numeric:tabular-nums}
+.pkg .price .pp small{font-size:12px;color:var(--muted)}
+.btn{font-family:var(--slab);font-size:15px;background:var(--green);color:#FFFFFF;border:0;padding:10px 16px;cursor:pointer;text-align:center}
+.btn:hover{background:var(--green-dark)}
+.btn.ghost{background:transparent;color:var(--green-dark);border:1px solid var(--green)}
+.btn.ghost:hover{background:var(--green-soft)}
+
+/* Calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+.list{background:var(--paper)}
+.grp{padding:8px 24px 14px;border-bottom:1px solid var(--line)}
+.grp h4{font-family:var(--sans);font-size:13px;letter-spacing:.8px;text-transform:uppercase;color:var(--green-dark);margin:14px 0 4px;font-weight:500}
+.row{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+.grp h4 + .row{border-top:none}
+.row input{width:18px;height:18px;accent-color:var(--green);margin:0}
+.row .nm{color:var(--ink);font-size:15px;line-height:1.35}
+.row .nm small{display:block;color:var(--muted);font-size:13px}
+.row .pr{font-family:var(--sans);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.row select{font-family:var(--slab);font-size:13px;margin-top:4px;max-width:100%}
+.sum{background:var(--foot);color:var(--foot-text);padding:24px;position:sticky;top:96px;display:flex;flex-direction:column;gap:12px}
+.sum h3{margin:0;font-weight:400;font-size:20px}
+.sum .ln{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--foot-muted);font-variant-numeric:tabular-nums}
+.sum .ln b{font-family:var(--sans);color:var(--foot-text);font-weight:500}
+.sum .tot{border-top:1px solid #5A5C66;padding-top:12px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sum .tot b{font-family:var(--sans);font-size:30px;color:#FFFFFF;font-variant-numeric:tabular-nums}
+.sum label{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:var(--foot-muted)}
+.sum input[type=number]{width:72px;font-family:var(--sans);font-size:15px;padding:4px 6px;border:1px solid #5A5C66;background:#2B2D33;color:#FFFFFF}
+.sum input[type=checkbox]{accent-color:var(--green);width:18px;height:18px}
+.sum .sel{font-size:13px;color:var(--foot-muted);min-height:20px}
+.sum .note{font-size:12px;color:var(--foot-muted);line-height:1.45}
+.sum .btn{width:100%}
+.copied{font-size:13px;color:#9FD898;min-height:18px}
+.btn.ghost-dark{background:transparent;color:var(--foot-text);border:1px solid #5A5C66}
+.btn.ghost-dark:hover{border-color:var(--foot-text)}
+.req{background:var(--paper);border-top:3px solid var(--green);padding:28px;margin-top:24px;display:flex;flex-direction:column;gap:20px}
+.req-head h3{margin:0 0 4px;font-size:22px;font-weight:400;color:var(--ink)}
+.req-head p{margin:0;font-size:15px;max-width:65ch}
+.req-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px}
+.req-grid label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--ink);min-width:0}
+.req-grid .full{grid-column:1/-1}
+.req-grid input,.req-grid textarea{font-family:var(--slab);font-size:15px;padding:10px 12px;border:1px solid #CFCFCF;background:var(--paper);color:var(--ink);width:100%}
+.req-grid textarea[readonly]{background:var(--page);font-family:var(--sans);font-size:14px;color:var(--text)}
+.req-grid input:focus,.req-grid textarea:focus{outline:2px solid var(--green);outline-offset:0;border-color:var(--green)}
+.req-grid .invalid{border-color:#C0392B}
+.req-grid .check{flex-direction:row;align-items:flex-start;gap:10px;font-size:14px;color:var(--text)}
+.req-grid .check input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--green)}
+.req-grid .check a{color:var(--green-dark)}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.req-foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.status{margin:0;font-size:15px;color:var(--text)}
+.status.ok{color:var(--green-dark)}
+.status.err{color:#B03A2E}
+.btn[disabled]{opacity:.6;cursor:wait}
+@media (max-width:600px){.req-grid{grid-template-columns:1fr}.req{padding:20px}}
+
+/* Timeline */
+.tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.tl div{background:var(--paper);padding:20px;border-top:4px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.tl .k{border-top-color:var(--green)}
+.tl .ev{border-top-color:var(--ink)}
+.tl small{font-family:var(--sans);font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.tl b{font-family:var(--sans);font-size:30px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:700}
+.tl span{font-size:14px}
+.tl .past{opacity:.55}
+
+/* Tech */
+.tech{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;background:var(--paper);padding:8px 28px}
+.tech div{padding:16px 0;border-bottom:1px solid var(--line)}
+.tech dt{font-size:13px;color:var(--muted)}
+.tech dd{margin:0;color:var(--ink)}
+
+/* Contact */
+.contact{position:relative;min-height:400px;display:flex;align-items:flex-end}
+.contact .tile{position:absolute;inset:0}
+.contact .in{position:relative;z-index:2;padding:32px;color:#FFFFFF;display:flex;flex-direction:column;gap:6px;max-width:640px}
+.contact h3{font-size:34px;font-weight:400;margin:0;color:#FFFFFF}
+.contact p{margin:0;color:#E8E8E8}
+.contact .mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.contact code{font-family:var(--sans);font-size:16px;background:rgba(255,255,255,.12);padding:6px 10px;user-select:all;color:#FFFFFF}
+
+footer.site{background:var(--foot);color:var(--foot-text);padding-block:36px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;font-size:14px;color:var(--foot-muted)}
+footer img{width:160px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;grid-template-rows:auto;height:auto}
+  .hero .big{grid-row:auto;min-height:380px}
+  .hero .tile:not(.big){min-height:220px}
+  .article,.calc,.aud{grid-template-columns:1fr}
+  .facts{border-left:none;padding-left:0;border-top:1px solid var(--line)}
+  .stats,.tl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards,.pk{grid-template-columns:1fr 1fr}
+  .tech{grid-template-columns:1fr 1fr}
+  .sum{position:static}
+}
+@media (max-width:600px){
+  .bar{gap:14px;min-height:64px}.bar img{width:140px}
+  .cards,.pk,.tech,.aud .panel{grid-template-columns:1fr}
+  .reach{grid-template-columns:1fr 1fr}
+  .article{padding:22px}
+  .tile .cap{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){.tile img{transition:none}html{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <img src="img/logo-schwarz.png" alt="electrified">
+    <nav class="main" aria-label="Bereiche">
+      <a href="#special" class="on">Special</a>
+      <a href="#trends">Trends</a>
+      <a href="#leser">Leser</a>
+      <a href="#pakete">Pakete</a>
+      <a href="#rechner">Angebotsrechner</a>
+      <a href="#termine">Termine</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banner">
+  <div class="wrap">
+    <span><b>Special in Ausgabe 01/2027</b> · Erstverkauf 17.12.2026 · Anzeigenschluss 08.12.2026</span>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="special" aria-label="Special">
+    <div class="hero">
+      <a class="tile big" href="#trends">
+        <img src="img/frau-auto.jpg" alt="Frau mit Smartphone im E-Auto an einer Ladesäule">
+        <div class="cap">
+          <span class="cat">Special · Elektro</span>
+          <h1>Charging Trends 2027</h1>
+          <p>Wie wir 2027 laden: smart zu Hause, schnell unterwegs, fair bezahlt. Das Themen-Special in electrified 01/2027.</p>
+        </div>
+      </a>
+      <a class="tile" href="#pakete">
+        <img src="img/business.jpg" alt="Zwei Geschäftsleute besprechen sich am Smartphone">
+        <div class="cap"><span class="cat">Partner</span><h3>Drei Pakete für Ihre Marke</h3></div>
+      </a>
+      <a class="tile" href="#leser">
+        <img src="img/wallbox-nacht.jpg" alt="E-Auto lädt nachts an einer beleuchteten Wallbox">
+        <div class="cap"><span class="cat">Mediadaten</span><h3>Wer electrified liest</h3></div>
+      </a>
+    </div>
+  </section>
+
+  <section aria-label="Das Special">
+    <div class="article">
+      <div>
+        <span class="cat">Das Special</span>
+        <h2>Laden wird zur Frage von Kosten, Komfort und Haltung</h2>
+        <p class="lead">Auch 2027 werden wir uns mit volatilen Energiepreisen abfinden müssen. E-Auto-Fahrer können auf verschiedene Arten gegensteuern. Welche Lösungen und Tools liegen im Trend?</p>
+        <p>Zu Hause bleibt die Kombination aus Solaranlage, Speicher, Wallbox und E-Auto das Thema Nummer eins, um kosteneffizient und bidirektional zu laden. Dazu kommen flexible, smarte Stromtarife.</p>
+        <p>Auch unterwegs lässt sich sparen: Effiziente Laderoutenplanung wird wichtiger, ebenso die Wahl des Anbieters, der zum eigenen Fahrprofil passt. electrified erklärt und ordnet ein.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Ausgabe</dt><dd>electrified 01/2027</dd></div>
+        <div><dt>Erstverkauf</dt><dd>17. Dezember 2026</dd></div>
+        <div><dt>Umfang</dt><dd>10 redaktionelle Seiten</dd></div>
+        <div><dt>Verlängerung</dt><dd>Online, Instagram, Podcast</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section aria-label="Marktzahlen">
+    <div class="sec-head"><h2>Warum jetzt?</h2><span>Der Markt lädt auf</span></div>
+    <div class="stats two">
+      <div class="stat"><b>34,5 %</b><span>der Pkw-Neuzulassungen im September 2026 waren reine E-Autos, ein Rekord</span></div>
+      <div class="stat"><b>604.144</b><span>neue E-Autos von Januar bis September 2026, ein Plus von 58 %</span></div>
+    </div>
+    <div class="why">
+      <div class="whyc"><span class="cat">Bidirektionales Laden</span><b>2026</b><p>Ende der doppelten Netzentgelte: Strom, den das E-Auto zurückspeist, wird wie ein Speicher behandelt. Die Bundesnetzagentur öffnet Ladepunkte als Speicher (MiSpeL).</p></div>
+      <div class="whyc"><span class="cat">Solar + Wallbox</span><b>53 %</b><p>Solaranteil beim Laden zu Hause im Schnitt, gemessen in 730 Haushalten mit PV. Mit Heimspeicher steigt die Autarkie des Haushalts von 47 auf 73 %.</p></div>
+      <div class="whyc"><span class="cat">Flexibles Stromnetz</span><b>2 vs. 11 ct</b><p>Netzentgelt pro kWh nachts gegenüber abends bei zeitvariablen Tarifen nach § 14a EnWG. Laden in der Nacht spart 300 bis 500 € im Jahr.</p></div>
+    </div>
+    <p class="src">Quellen: KBA, September 2026 (via electrive.net) · ZfK, 11/2025 · HTW Berlin „Solares Laden von Elektrofahrzeugen“ (2025) · ADAC</p>
+  </section>
+
+  <section id="trends">
+    <div class="sec-head"><h2>Sechs Trends für 2027</h2><span>Themen im Special</span></div>
+    <div class="cards">
+      <article class="card"><div class="ph"><img src="img/haus-nacht.jpg" alt="Haus mit E-Auto an der Wallbox im Carport" loading="lazy"></div><div class="body"><span class="cat">Energie</span><h3>Bidirektional laden</h3><p>Das E-Auto wird zum Stromspeicher für Haus und Netz. Der Bund plant unter anderem den Wegfall von Netzentgelten für zurückgespeisten Strom.</p><p class="fit">Passt zu: Energieversorgern, Wallbox- und Speicherherstellern</p></div></article>
+      <article class="card"><div class="ph"><img src="img/wallbox-nacht.jpg" alt="Leuchtende Wallbox an einer Hauswand" loading="lazy"></div><div class="body"><span class="cat">Nutzfahrzeuge</span><h3>Megawatt für E-Lkw</h3><p>836 Ladepunkte an 124 Rastanlagen, davon 447 nach MCS-Standard. Die ersten Standorte sind für 2027 geplant.</p><p class="fit">Passt zu: Lkw-Herstellern, Flotten, Ladenetzbetreibern</p></div></article>
+      <article class="card"><div class="ph"><img src="img/frau-auto.jpg" alt="Frau schaut im Auto auf ihr Smartphone" loading="lazy"></div><div class="body"><span class="cat">Digitales</span><h3>Plug &amp; Charge</h3><p>Einstecken, laden, fertig: Das Auto authentifiziert sich selbst. An neuen Schnellladern zahlt man ad hoc mit Karte.</p><p class="fit">Passt zu: Payment- und Ladekarten-Anbietern, Herstellern</p></div></article>
+      <article class="card"><div class="ph"><img src="img/business.jpg" alt="Zwei Personen vergleichen etwas am Smartphone" loading="lazy"></div><div class="body"><span class="cat">Verbraucher</span><h3>Faire Ladepreise</h3><p>Über 95 % des Ladens laufen über Verträge. Politik und Anbieter ringen um vergleichbare, transparente Tarife.</p><p class="fit">Passt zu: Ladestrom-Anbietern, Vergleichsportalen</p></div></article>
+      <article class="card"><div class="ph"><img src="img/solarhaus.jpg" alt="Einfamilienhaus mit Solardach und E-Auto" loading="lazy"></div><div class="body"><span class="cat">Zuhause</span><h3>Smart laden zu Hause</h3><p>Wallbox, PV, Speicher und dynamische Stromtarife: Geladen wird, wenn der Strom grün und günstig ist.</p><p class="fit">Passt zu: PV-Anbietern, Stromversorgern, Smart-Home-Marken</p></div></article>
+      <article class="card"><div class="ph"><img src="img/wallbox-wand.jpg" alt="Wallbox an einer Ziegelwand" loading="lazy"></div><div class="body"><span class="cat">Unterwegs</span><h3>Laderouten &amp; Anbieter</h3><p>Clevere Routenplanung und der passende Anbieter zum eigenen Fahrprofil sparen unterwegs bares Geld.</p><p class="fit">Passt zu: Navigations- und Lade-Apps, Mobilitätsdiensten</p></div></article>
+    </div>
+  </section>
+
+  <section id="leser">
+    <div class="sec-head"><h2>Leserschaft &amp; Reichweite</h2><span>Mediaunterlagen 2026</span></div>
+    <div class="aud">
+      <div class="tile">
+        <img src="img/wallbox-wand.jpg" alt="Wallbox an einer Ziegelwand neben einem Auto">
+        <div class="cap"><span class="cat">Zielgruppe</span><h3>Hochaffin, urban, vernetzt. Ohne Streuverluste.</h3><p>Menschen, für die Nachhaltigkeit ein zentraler Wert ist und die stets vernetzt leben und arbeiten.</p></div>
+      </div>
+      <div class="panel">
+        <div><h4>Zielgruppen</h4><ul><li>Entscheider und leitende Angestellte</li><li>Young Professionals, urban</li><li>Green Innovators</li><li>Hyperkonsumenten</li></ul></div>
+        <div><h4>Soziodemografie</h4><ul><li>Durchschnittsalter 42,5 Jahre</li><li>82 % männlich</li><li>Einkommen über 4.000 € im Monat</li></ul></div>
+        <div class="reach">
+          <div><b>35.000</b><span>Druckauflage</span></div>
+          <div><b>34.500</b><span>verbreitete Auflage</span></div>
+          <div><b>10.345</b><span>Abonnements</span></div>
+          <div><b>20.000</b><span>ePaper (Readly, United Kiosk)</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">Kioske an Bahnhöfen und Flughäfen · B2B über Partner und Verbände · D, A, CH, LU · Copypreis 5,20 € (D)</p>
+  </section>
+
+  <section id="pakete">
+    <div class="sec-head"><h2>Partnerpakete</h2><span>Listenwerte zzgl. MwSt.</span></div>
+    <div class="pk">
+      <div class="pkg top">
+        <span class="cat">Exklusiv · 1 Partner</span>
+        <h3>Megawatt</h3>
+        <ul><li>„Präsentiert von“ auf dem Special-Opener</li><li>2/1-Anzeige am Special-Opener</li><li>1/1-Advertorial im Special</li><li>Beitrag auf electrifiedmagazin.de + Content Ad</li></ul>
+        <div class="price"><span class="lp">Listenwert<i>28.700 €</i></span><span class="pp">Paketpreis<b data-pp="megawatt">–</b><small data-ppn="megawatt">laut Angebotsrechner</small></span></div>
+        <button class="btn" type="button" data-preset="megawatt">Im Rechner öffnen</button>
+      </div>
+      <div class="pkg">
+        <span class="cat">Sichtbarkeit</span>
+        <h3>High Power</h3>
+        <ul><li>1/1-Anzeige im Special, gegenüber Redaktion</li><li>Beitrag auf electrifiedmagazin.de + Content Ad</li></ul>
+        <div class="price"><span class="lp">Listenwert<i>12.400 €</i></span><span class="pp">Paketpreis<b data-pp="highpower">–</b><small data-ppn="highpower">laut Angebotsrechner</small></span></div>
+        <button class="btn ghost" type="button" data-preset="highpower">Im Rechner öffnen</button>
+      </div>
+      <div class="pkg">
+        <span class="cat">Einstieg</span>
+        <h3>Wallbox</h3>
+        <ul><li>1/2-Anzeige hoch im Special</li><li>alternativ 1/1-Advertorial im Special</li></ul>
+        <div class="price"><span class="lp">Listenpreis<i>ab 5.100 €</i></span><span class="pp">Paketpreis<b data-pp="wallbox">–</b><small data-ppn="wallbox">laut Angebotsrechner</small></span></div>
+        <button class="btn ghost" type="button" data-preset="wallbox">Im Rechner öffnen</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="rechner">
+    <div class="sec-head"><h2>Angebotsrechner</h2><span>Formate wählen, Rabatt eintragen</span></div>
+    <div class="calc">
+      <div class="list" id="list"></div>
+      <aside class="sum" aria-live="polite">
+        <h3>Ihr Angebot</h3>
+        <div class="sel" id="sel"></div>
+        <div class="ln"><span>Listenpreis</span><b id="s-list">0 €</b></div>
+        <label for="disc">Kundenrabatt in %<input id="disc" type="number" min="0" max="60" step="1" value="0"></label>
+        <div class="ln"><span>Rabatt</span><b id="s-disc">0 €</b></div>
+        <label for="ae">15 % Agenturprovision abziehen<input id="ae" type="checkbox"></label>
+        <div class="ln" id="ae-ln" hidden><span>AE 15 %</span><b id="s-ae">0 €</b></div>
+        <div class="tot"><span>Netto</span><b id="s-net">0 €</b></div>
+        <p class="note">Alle Preise zzgl. MwSt. nach Preisliste 2026. Unverbindliche Kalkulation, kein Angebot.</p>
+        <button class="btn" type="button" id="open-form">Angebot anfragen</button>
+        <button class="btn ghost-dark" type="button" id="copy">Zusammenfassung kopieren</button>
+        <div class="copied" id="copied"></div>
+      </aside>
+    </div>
+    <form class="req" id="req" novalidate hidden>
+      <div class="req-head">
+        <h3>Anfrage an electrified senden</h3>
+        <p>Ihre Auswahl geht zusammen mit Ihren Kontaktdaten an Mathias Herbig. Sie erhalten innerhalb von zwei Werktagen eine Antwort.</p>
+      </div>
+      <div class="req-grid">
+        <label for="f-firma">Firma *<input id="f-firma" name="firma" required autocomplete="organization"></label>
+        <label for="f-name">Ansprechpartner *<input id="f-name" name="name" required autocomplete="name"></label>
+        <label for="f-mail">E-Mail *<input id="f-mail" name="email" type="email" required autocomplete="email"></label>
+        <label for="f-tel">Telefon<input id="f-tel" name="telefon" type="tel" autocomplete="tel"></label>
+        <label for="f-msg" class="full">Nachricht<textarea id="f-msg" name="nachricht" rows="3" placeholder="z. B. Wunschplatzierung, Rückfragen, Terminwunsch"></textarea></label>
+        <label for="f-sum" class="full">Ihre Auswahl<textarea id="f-sum" name="auswahl" rows="7" readonly></textarea></label>
+        <label class="hp" for="f-web" aria-hidden="true">Website<input id="f-web" name="website" tabindex="-1" autocomplete="off"></label>
+        <label for="f-dsgvo" class="check full"><input id="f-dsgvo" name="datenschutz" type="checkbox" required> Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Mehr in der <a href="https://www.electrifiedmagazin.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</label>
+      </div>
+      <div class="req-foot">
+        <button class="btn" type="submit" id="send">Anfrage senden</button>
+        <button class="btn ghost" type="button" id="pdf">PDF ansehen</button>
+        <button class="btn ghost" type="button" id="cancel">Abbrechen</button>
+        <p class="status" id="status" role="status"></p>
+      </div>
+    </form>
+  </section>
+
+  <section id="termine">
+    <div class="sec-head"><h2>Termine 01/2027</h2><span>Der Fahrplan zum Special</span></div>
+    <div class="tl" id="tl">
+      <div class="k" data-d="2026-11-25"><small>Empfohlene Buchung</small><b>25.11.</b><span>Spätestens buchen, damit Briefing und Produktion von Advertorials sicher klappen</span></div>
+      <div class="k" data-d="2026-12-08"><small>Anzeigenschluss</small><b>08.12.</b><span>Letzter Buchungstag für alle Formate</span></div>
+      <div class="k" data-d="2026-12-09"><small>Druckunterlagen</small><b>09.12.</b><span>Druckfertige Daten bei electrified</span></div>
+      <div class="ev" data-d="2026-12-17"><small>Erstverkauf</small><b>17.12.</b><span>Am Kiosk und als ePaper</span></div>
+    </div>
+    <dl class="tech" style="margin-top:24px">
+      <div><dt>Heftformat</dt><dd>210 × 280 mm, 3 mm Anschnitt</dd></div>
+      <div><dt>Dateiformat</dt><dd>PDF/X-1a oder PDF/X-3</dd></div>
+      <div><dt>Farbprofil</dt><dd>ISO Coated v2 300 %, 4/4</dd></div>
+      <div><dt>Auflösung</dt><dd>mind. 300 dpi, Linien ab 0,3 pt</dd></div>
+      <div><dt>Verarbeitung</dt><dd>Klebebindung, Umschlag 300 g/m²</dd></div>
+      <div><dt>Innenteil</dt><dd>100 g/m² Offset</dd></div>
+    </dl>
+  </section>
+
+  <section id="kontakt">
+    <div class="contact">
+      <div class="tile"><img src="img/haus-nacht.jpg" alt="Haus bei Nacht mit E-Auto an der Wallbox"></div>
+      <div class="in">
+        <span class="cat" style="color:#9FD898">Jetzt Platz im Special sichern</span>
+        <h3>Mathias Herbig</h3>
+        <p>CEO · Electrified Media GmbH · Garystraße 44, 14195 Berlin</p>
+        <p>+49 30 40364 5251 · +49 151 56036998</p>
+        <div class="mail"><code id="mail">mathias.herbig@electrifiedmagazin.de</code><button class="btn" type="button" id="copymail">E-Mail kopieren</button></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img src="img/logo-weiss.png" alt="electrified">
+    <span>Magazin für Mobilität, Nachhaltigkeit und Digitales · electrifiedmagazin.de</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const ITEMS=[
+ {g:'Print im Special',id:'d21',n:'2/1 Doppelseite',s:'420 × 280 mm',p:17300},
+ {g:'Print im Special',id:'d11r',n:'1/1 gegenüber Redaktion',s:'210 × 280 mm',p:9900},
+ {g:'Print im Special',id:'d11',n:'1/1 Seite',s:'210 × 280 mm',p:8900},
+ {g:'Print im Special',id:'d12',n:'1/2 Seite hoch',s:'105 × 280 mm',p:5100},
+ {g:'Print im Special',id:'adv',n:'Advertorial 1/1',s:'bis 2.500 Zeichen',p:8900,prod:true},
+ {g:'Print im Special',id:'u4',n:'Umschlagseite U2, U3 oder U4',s:'210 × 280 mm',p:9900},
+ {g:'Online',id:'sa',n:'Beitrag auf electrifiedmagazin.de',s:'Sponsored Article: 7 Tage Homepage, 365 Tage online',p:2500},
+ {g:'Online',id:'ca',n:'Content Ad (Medium Rectangle)',s:'300 × 272 px, Volumen nach Absprache',p:0,pt:'TKP 40 €'},
+ {g:'Online',id:'sa3',n:'Beiträge auf electrifiedmagazin.de, 3er-Kombi',s:'drei Sponsored Articles',p:6000},
+ {g:'Online',id:'advon',n:'Advertorial-Paket online',s:'Microsite, Instagram-Post und Story',p:4500},
+ {g:'Podcast',id:'pod',n:'Podcast Small',s:'3 Pre-, 3 Mid-Rolls, 1 Integration',p:18000}
+];
+const PROD=[{v:0,t:'Material wird geliefert'},{v:500,t:'+500 € Gestaltung durch electrified'},{v:3200,t:'+3.200 € Redaktion und Produktion'}];
+const PRESETS={megawatt:['d21','adv','sa','ca'],highpower:['d11r','sa','ca'],wallbox:['d12']};
+const eur=n=>new Intl.NumberFormat('de-DE',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+const list=document.getElementById('list');
+let html='',last='';
+ITEMS.forEach(it=>{
+  if(it.g!==last){ if(last) html+='</div>'; html+='<div class="grp"><h4>'+it.g+'</h4>'; last=it.g; }
+  html+='<label class="row" for="c-'+it.id+'"><input type="checkbox" id="c-'+it.id+'" data-id="'+it.id+'"><span class="nm">'+it.n+'<small>'+it.s+'</small>'+
+   (it.prod?'<select id="prod" aria-label="Produktion Advertorial">'+PROD.map(o=>'<option value="'+o.v+'">'+o.t+'</option>').join('')+'</select>':'')+
+   '</span><span class="pr">'+(it.pt||eur(it.p))+'</span></label>';
+});
+list.innerHTML=html+'</div>';
+const $=id=>document.getElementById(id);
+let summary='', state={};
+function updatePkgPrices(d){
+  const prod=Number(($('prod')||{}).value||0), aeOn=$('ae').checked;
+  Object.keys(PRESETS).forEach(k=>{
+    let t=0; PRESETS[k].forEach(id=>{const it=ITEMS.find(x=>x.id===id); t+=it.p+(it.prod?prod:0);});
+    const a=t*(1-d/100), net=aeOn?a*0.85:a;
+    const b=document.querySelector('[data-pp="'+k+'"]'), n=document.querySelector('[data-ppn="'+k+'"]');
+    if(b) b.textContent=eur(net);
+    if(n){ const parts=[]; if(d) parts.push(d+' % Rabatt'); if(aeOn) parts.push('nach AE'); if(prod) parts.push('inkl. Advertorial-Produktion'); n.textContent=(parts.length?parts.join(', ')+', ':'')+'netto zzgl. MwSt.'+(PRESETS[k].includes('ca')?', Content Ad zzgl. nach TKP':''); }
+  });
+}
+const PKG_NAMES={megawatt:'Megawatt (exklusiv)',highpower:'High Power',wallbox:'Wallbox'};
+function calc(){
+  const sel=ITEMS.filter(it=>$('c-'+it.id).checked);
+  let total=0; const names=[], lines=[];
+  sel.forEach(it=>{ let p=it.p, s=it.s; if(it.prod){const v=Number($('prod').value); p+=v; if(v) s+=', '+PROD.find(o=>o.v===v).t.replace(/^\+[\d.]+ € /,'');} total+=p; names.push(it.n); lines.push({g:it.g,n:it.n,s:s,p:p,pt:it.pt||''}); });
+  const ids=sel.map(it=>it.id).sort().join();
+  const pkg=Object.keys(PRESETS).find(k=>PRESETS[k].slice().sort().join()===ids)||'';
+  const d=Math.min(60,Math.max(0,Number($('disc').value)||0));
+  const disc=total*d/100, after=total-disc;
+  const ae=$('ae').checked?after*0.15:0, net=after-ae;
+  $('s-list').textContent=eur(total); $('s-disc').textContent=(disc?'– ':'')+eur(disc);
+  $('ae-ln').hidden=!$('ae').checked; $('s-ae').textContent='– '+eur(ae);
+  $('s-net').textContent=eur(net);
+  $('sel').textContent=names.length?names.join(' · '):'Noch nichts gewählt. Formate links ankreuzen oder ein Paket öffnen.';
+  state={lines,total,d,disc,aeOn:$('ae').checked,ae,net,pkg:pkg?PKG_NAMES[pkg]:''};
+  updatePkgPrices(d);
+  summary='Charging Trends 2027 – electrified 01/2027 (EVT 17.12.2026)\n'+(pkg?'Paket: '+PKG_NAMES[pkg]+'\n':'')+names.map(n=>'_ '+n).join('\n')+
+   '\nListenpreis: '+eur(total)+(d?'\nKundenrabatt '+d+' %: '+eur(disc):'')+($('ae').checked?'\nAE 15 %: '+eur(ae):'')+'\nNetto: '+eur(net)+' zzgl. MwSt.';
+}
+list.addEventListener('change',calc);
+$('disc').addEventListener('input',calc); $('ae').addEventListener('change',calc);
+document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{
+  const ids=PRESETS[b.dataset.preset];
+  ITEMS.forEach(it=>$('c-'+it.id).checked=ids.includes(it.id));
+  calc(); $('rechner').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+}));
+function copy(text,out,el){
+  const done=()=>{out.textContent='Kopiert.'; setTimeout(()=>out.textContent='',2500)};
+  const fallback=()=>{ if(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)} out.textContent='Text markiert, bitte mit Strg/Cmd+C kopieren.'; };
+  try{ navigator.clipboard.writeText(text).then(done,fallback) }catch(e){ fallback() }
+}
+$('copy').addEventListener('click',()=>copy(summary,$('copied'),null));
+$('copymail').addEventListener('click',()=>copy($('mail').textContent,$('copied'),$('mail')));
+// request form
+const form=$('req'), status=$('status');
+$('open-form').addEventListener('click',()=>{
+  calc(); $('f-sum').value=summary; form.hidden=false; status.textContent=''; status.className='status';
+  form.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+  setTimeout(()=>$('f-firma').focus({preventScroll:true}),300);
+});
+$('cancel').addEventListener('click',()=>{form.hidden=true});
+list.addEventListener('change',()=>{ if(!form.hidden) $('f-sum').value=summary });
+$('disc').addEventListener('input',()=>{ if(!form.hidden) $('f-sum').value=summary });
+$('ae').addEventListener('change',()=>{ if(!form.hidden) $('f-sum').value=summary });
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const req=['f-firma','f-name','f-mail'];
+  let bad=null;
+  req.forEach(id=>{const el=$(id); const ok=el.value.trim()&&el.checkValidity(); el.classList.toggle('invalid',!ok); if(!ok&&!bad) bad=el;});
+  if(bad){ status.className='status err'; status.textContent='Bitte Firma, Ansprechpartner und eine gültige E-Mail-Adresse angeben.'; bad.focus(); return; }
+  if(!$('f-dsgvo').checked){ status.className='status err'; status.textContent='Bitte der Verarbeitung Ihrer Angaben zustimmen.'; $('f-dsgvo').focus(); return; }
+  if(!ITEMS.some(it=>$('c-'+it.id).checked)){ status.className='status err'; status.textContent='Bitte im Rechner mindestens ein Format auswählen.'; return; }
+  const data=Object.fromEntries(new FormData(form).entries());
+  data.auswahl=summary;
+  const btn=$('send'); btn.disabled=true; status.className='status'; status.textContent='PDF wird erstellt und gesendet …';
+  let doc=null;
+  try{ doc=await buildPDF(data); data.pdf=doc.output('datauristring').split(',')[1]; data.pdfname=pdfName(data); }catch(e){ /* send without PDF */ }
+  try{
+    const r=await fetch('anfrage.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||!j.ok) throw new Error(j.error||'server');
+    status.className='status ok'; status.textContent='Danke! Ihre Anfrage ist als PDF bei Mathias Herbig eingegangen.';
+    form.reset(); $('f-sum').value=summary; btn.disabled=false;
+  }catch(err){
+    btn.disabled=false; status.className='status err';
+    status.textContent=(err.message&&err.message!=='server'&&!/fetch|network|load/i.test(err.message))?err.message:'Die Anfrage konnte gerade nicht gesendet werden. Laden Sie das PDF über „PDF ansehen“ herunter und schicken Sie es an mathias.herbig@electrifiedmagazin.de.';
+  }
+});
+
+// ---------- PDF: Anschreiben + Kalkulation ----------
+const heute=()=>new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'long',year:'numeric'});
+const pdfName=d=>'Anfrage_Charging-Trends-2027_'+((d.firma||'Kunde').replace(/[^A-Za-z0-9ÄÖÜäöüß-]+/g,'-').replace(/^-|-$/g,'')||'Kunde')+'.pdf';
+let logoData=null;
+function loadLogo(){
+  if(logoData) return Promise.resolve(logoData);
+  return new Promise(res=>{const im=new Image(); im.onload=()=>{try{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;c.getContext('2d').drawImage(im,0,0);logoData={url:c.toDataURL('image/png'),r:im.naturalHeight/im.naturalWidth};}catch(e){logoData=null} res(logoData)}; im.onerror=()=>res(null); im.src='img/logo-schwarz.png';});
+}
+async function buildPDF(d){
+  if(!window.jspdf) throw new Error('pdf-lib');
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4'});
+  const G=[63,160,51], INK=[35,35,35], MUT=[110,110,110], L=25, R=185, W=R-L;
+  const logo=await loadLogo();
+  const firma=(d.firma||'').trim(), name=(d.name||'').trim(), mail=(d.email||'').trim(), tel=(d.telefon||'').trim(), msg=(d.nachricht||'').trim();
+  const footer=()=>{ doc.setDrawColor(220);doc.line(L,282,R,282);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(...MUT);
+    doc.text('Electrified Media GmbH · Garystraße 44 · 14195 Berlin · electrifiedmagazin.de',L,287);
+    doc.text('Anfrage erstellt über die App „Charging Trends 2027“ am '+heute(),R,287,{align:'right'}); };
+  const head=()=>{ if(logo) doc.addImage(logo.url,'PNG',R-48,16,48,48*logo.r); doc.setFillColor(...G); doc.rect(L,16,14,1.2,'F'); };
+  // Seite 1: Anschreiben
+  head();
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(...MUT);
+  doc.text([firma,name,mail].filter(Boolean).join(' · '),L,48);
+  doc.setFontSize(10.5); doc.setTextColor(...INK);
+  doc.text(['Electrified Media GmbH','z. Hd. Herrn Mathias Herbig','Garystraße 44','14195 Berlin'],L,56);
+  doc.setFontSize(9); doc.setTextColor(...MUT);
+  const absender=[firma,name,mail,tel].filter(Boolean);
+  doc.text(absender,R,56,{align:'right'});
+  doc.text(heute(),R,92,{align:'right'});
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(...INK);
+  doc.text('Anfrage zum Special „Charging Trends 2027“ – electrified 01/2027',L,104);
+  doc.setFont('helvetica','normal'); doc.setFontSize(10.5);
+  const pk=state.pkg?'das Partnerpaket „'+state.pkg+'“':'die folgende Auswahl';
+  const posten=state.lines.map(l=>l.n).join(', ');
+  const paras=[
+    'Sehr geehrter Herr Herbig,',
+    'wir interessieren uns für eine Präsenz im Special „Charging Trends 2027“ in der electrified-Ausgabe 01/2027 mit Erstverkauf am 17. Dezember 2026. Bitte senden Sie uns ein verbindliches Angebot für '+pk+': '+posten+'.',
+    'Auf Basis der Preisliste 2026 ergibt sich ein Listenpreis von '+eur(state.total)+(state.d?' und mit dem angegebenen Kundenrabatt von '+state.d+' %':'')+(state.aeOn?' nach Abzug der Agenturprovision':'')+' ein Nettobetrag von '+eur(state.net)+' zzgl. MwSt. Die vollständige Kalkulation finden Sie auf der folgenden Seite.',
+  ];
+  if(msg) paras.push('Ergänzend möchten wir Folgendes anmerken: '+msg);
+  paras.push('Bitte informieren Sie uns auch über die möglichen Platzierungen und die Termine für Briefing und Druckunterlagen. Den Anzeigenschluss am 8. Dezember 2026 haben wir vorgemerkt.');
+  paras.push('Wir freuen uns auf Ihre Rückmeldung'+(tel?' per E-Mail oder telefonisch unter '+tel:' an '+mail)+'.');
+  let y=116; const LH=10.5*0.3528*1.45;
+  const room=need=>{ if(y+need>270){ footer(); doc.addPage(); head(); y=40; doc.setFont('helvetica','normal'); doc.setFontSize(10.5); doc.setTextColor(...INK); } };
+  paras.forEach(p=>{ const t=doc.splitTextToSize(p,W); room(t.length*LH); doc.text(t,L,y,{lineHeightFactor:1.45}); y+=t.length*LH+4.5; });
+  room(26); y+=4; doc.text('Mit freundlichen Grüßen',L,y); y+=14;
+  doc.setFont('helvetica','bold'); doc.text(name||'—',L,y); doc.setFont('helvetica','normal'); doc.setTextColor(...MUT); doc.text(firma,L,y+5.5);
+  footer();
+  // Seite 2: Kalkulation
+  doc.addPage(); head();
+  doc.setFont('helvetica','bold'); doc.setFontSize(16); doc.setTextColor(...INK);
+  doc.text('Ihre Auswahl im Überblick',L,46);
+  doc.setFont('helvetica','normal'); doc.setFontSize(9.5); doc.setTextColor(...MUT);
+  doc.text('Special „Charging Trends 2027“ · electrified 01/2027 · Erstverkauf 17.12.2026 · Anzeigenschluss 08.12.2026'+(state.pkg?' · Paket: '+state.pkg:''),L,53,{maxWidth:W});
+  y=66; doc.setFillColor(35,35,35); doc.rect(L,y-5,W,8,'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(255,255,255);
+  doc.text('Pos.',L+2,y); doc.text('Format',L+14,y); doc.text('Spezifikation',L+82,y); doc.text('Listenpreis',R-2,y,{align:'right'});
+  doc.setFont('helvetica','normal'); doc.setTextColor(...INK); y+=9;
+  state.lines.forEach((l,i)=>{
+    const sp=doc.splitTextToSize(l.s,62), nm=doc.splitTextToSize(l.n,64), h=Math.max(sp.length,nm.length)*4.4+3;
+    if(i%2===0){doc.setFillColor(244,244,244);doc.rect(L,y-4.6,W,h,'F');}
+    doc.text(String(i+1),L+2,y); doc.text(nm,L+14,y); doc.setTextColor(...MUT); doc.text(sp,L+82,y); doc.setTextColor(...INK);
+    doc.text(l.pt||eur(l.p),R-2,y,{align:'right'}); y+=h;
+  });
+  y+=4; doc.setDrawColor(...INK); doc.setLineWidth(.4); doc.line(L+90,y,R,y); y+=7;
+  const row=(a,b,bold)=>{doc.setFont('helvetica',bold?'bold':'normal');doc.setFontSize(bold?11.5:10);doc.text(a,L+92,y);doc.text(b,R-2,y,{align:'right'});y+=bold?8:6.5;};
+  row('Listenpreis',eur(state.total));
+  if(state.d) row('Kundenrabatt '+state.d+' %','– '+eur(state.disc));
+  if(state.aeOn) row('Agenturprovision 15 %','– '+eur(state.ae));
+  doc.setFillColor(...G); doc.rect(L+90,y-4,W-90,0.8,'F'); y+=3;
+  row('Netto zzgl. MwSt.',eur(state.net),true);
+  y+=6; doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...MUT);
+  doc.text(doc.splitTextToSize('Unverbindliche Kalkulation nach electrified Preisliste 2026, alle Preise zzgl. gesetzlicher MwSt. Das verbindliche Angebot erstellt die Electrified Media GmbH.',W),L,y);
+  y+=14; doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(...INK); doc.text('Kontakt des Anfragenden',L,y); y+=6;
+  doc.setFont('helvetica','normal'); doc.setFontSize(9.5);
+  [['Firma',firma],['Ansprechpartner',name],['E-Mail',mail],['Telefon',tel||'–']].forEach(([k,v])=>{doc.setTextColor(...MUT);doc.text(k,L,y);doc.setTextColor(...INK);doc.text(v,L+38,y);y+=5.5;});
+  footer();
+  return doc;
+}
+$('pdf').addEventListener('click',async()=>{
+  calc();
+  const data=Object.fromEntries(new FormData(form).entries());
+  try{
+    const doc=await buildPDF(data); const blob=doc.output('blob'); const fn=pdfName(data);
+    const dl=await (window.claude?.use?window.claude.use('downloads'):Promise.resolve(null));
+    if(dl){ try{ await dl.save({filename:fn,data:blob}); }catch(e){} return; }
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fn; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);
+  }catch(e){ status.className='status err'; status.textContent='Das PDF konnte nicht erstellt werden.'; }
+});
+// preset example on load
+PRESETS.megawatt.forEach(id=>$('c-'+id).checked=true); calc();
+
+// countdown + timeline state
+const today=new Date(); today.setHours(0,0,0,0);
+const ad=new Date(2026,11,8); const days=Math.round((ad-today)/864e5);
+$('count').innerHTML=days>0?'Noch <strong>'+days+'</strong> Tage bis Anzeigenschluss':(days===0?'<strong>Heute</strong> ist Anzeigenschluss':'Anzeigenschluss vorbei');
+document.querySelectorAll('#tl [data-d]').forEach(el=>{ if(el.dataset.d && new Date(el.dataset.d+'T23:59:59')<new Date()) el.classList.add('past') });
+
+// active nav on scroll
+const links=[...document.querySelectorAll('nav.main a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.isIntersecting){ const i=secs.indexOf(e.target); links.forEach((l,j)=>l.classList.toggle('on',i===j)); } })},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>s&&io.observe(s));
+</script>
+</body>
+</html>
