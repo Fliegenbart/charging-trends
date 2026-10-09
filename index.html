@@ -533,6 +533,8 @@ $('cancel').addEventListener('click',()=>{form.hidden=true});
 list.addEventListener('change',()=>{ if(!form.hidden) $('f-sum').value=summary });
 $('disc').addEventListener('input',()=>{ if(!form.hidden) $('f-sum').value=summary });
 $('ae').addEventListener('change',()=>{ if(!form.hidden) $('f-sum').value=summary });
+// Versand über FormSubmit (formsubmit.co) – Empfänger: Anzeigenverkauf electrified
+const ANFRAGE_URL='https://formsubmit.co/ajax/mathias.herbig@electrifiedmagazin.de';
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   const req=['f-firma','f-name','f-mail'];
@@ -544,12 +546,26 @@ form.addEventListener('submit',async e=>{
   const data=Object.fromEntries(new FormData(form).entries());
   data.auswahl=summary;
   const btn=$('send'); btn.disabled=true; status.className='status'; status.textContent='PDF wird erstellt und gesendet …';
-  let doc=null;
-  try{ doc=await buildPDF(data); data.pdf=doc.output('datauristring').split(',')[1]; data.pdfname=pdfName(data); }catch(e){ /* send without PDF */ }
+  let pdfBlob=null;
+  try{ pdfBlob=(await buildPDF(data)).output('blob'); }catch(e){ /* send without PDF */ }
   try{
-    const r=await fetch('/api/anfrage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const fd=new FormData();
+    fd.append('_subject','Anfrage Charging Trends 2027 – '+data.firma.trim());
+    fd.append('_template','table');
+    fd.append('_captcha','false');
+    fd.append('_honey',data.website||'');
+    fd.append('_replyto',data.email.trim());
+    fd.append('Firma',data.firma.trim());
+    fd.append('Ansprechpartner',data.name.trim());
+    fd.append('E-Mail',data.email.trim());
+    fd.append('Telefon',(data.telefon||'').trim()||'–');
+    fd.append('Auswahl / Kalkulation',summary);
+    fd.append('Nachricht',(data.nachricht||'').trim()||'–');
+    fd.append('Datenschutz-Einwilligung','ja');
+    if(pdfBlob) fd.append('attachment',new File([pdfBlob],pdfName(data),{type:'application/pdf'}));
+    const r=await fetch(ANFRAGE_URL,{method:'POST',headers:{'Accept':'application/json'},body:fd});
     const j=await r.json().catch(()=>({}));
-    if(!r.ok||!j.ok) throw new Error(j.error||'server');
+    if(!r.ok||String(j.success)!=='true') throw new Error('server');
     status.className='status ok'; status.textContent='Danke! Ihre Anfrage ist als PDF bei Mathias Herbig eingegangen.';
     form.reset(); $('f-sum').value=summary; btn.disabled=false;
   }catch(err){
