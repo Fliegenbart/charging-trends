@@ -547,7 +547,7 @@ form.addEventListener('submit',async e=>{
   let doc=null;
   try{ doc=await buildPDF(data); data.pdf=doc.output('datauristring').split(',')[1]; data.pdfname=pdfName(data); }catch(e){ /* send without PDF */ }
   try{
-    const r=await fetch('anfrage.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const r=await fetch('/api/anfrage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     const j=await r.json().catch(()=>({}));
     if(!r.ok||!j.ok) throw new Error(j.error||'server');
     status.className='status ok'; status.textContent='Danke! Ihre Anfrage ist als PDF bei Mathias Herbig eingegangen.';
